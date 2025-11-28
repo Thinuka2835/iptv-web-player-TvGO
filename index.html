@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TvGO</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Floating Toolbar -->
+        <header class="glass-toolbar">
+            <div class="logo">
+                <span class="icon">📺</span> TvGO
+            </div>
+
+            <div class="controls">
+                <div class="category-group">
+                    <button class="glass-btn category-btn" data-category="srilanka">Srilanka</button>
+                    <button class="glass-btn category-btn" data-category="sports">Sports</button>
+                    <button class="glass-btn category-btn" data-category="movies">Movies</button>
+                    <button class="glass-btn category-btn" data-category="cartoons">Cartoons</button>
+                </div>
+
+                <button id="theme-toggle" class="glass-btn icon-btn" aria-label="Toggle Theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Sidebar Channel List -->
+            <aside class="sidebar glass-panel">
+                <div class="sidebar-header">
+                    <h3>Channels</h3>
+                    <div class="search-box">
+                        <input type="text" id="channel-search" placeholder="Search channels...">
+                    </div>
+                </div>
+                <div id="channel-list" class="channel-list">
+                    <div class="empty-state">
+                        <p>Upload a playlist or paste a URL to start.</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Video Player Area -->
+            <section class="player-container glass-panel">
+                <div class="video-wrapper">
+                    <video id="video-player" controls crossorigin="anonymous"></video>
+                    <div class="player-overlay" id="player-overlay">
+                        <div class="loader"></div>
+                    </div>
+                </div>
+                <div class="now-playing">
+                    <h2 id="current-channel-name">Select a channel</h2>
+                    <span id="current-stream-info" class="stream-info">Waiting for input...</span>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="playlists.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
